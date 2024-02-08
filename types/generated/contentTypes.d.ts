@@ -971,6 +971,68 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   };
 }
 
+export interface ApiLandingAcquisitionLandingAcquisition
+  extends Schema.CollectionType {
+  collectionName: 'landing_acquisitions';
+  info: {
+    singularName: 'landing-acquisition';
+    pluralName: 'landing-acquisitions';
+    displayName: 'Landing_Acquisition';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    carrier_plan: Attribute.Component<'landing-ui.carrier-plan', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    carrier: Attribute.Component<'landing-ui.carrier-data'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::landing-acquisition.landing-acquisition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::landing-acquisition.landing-acquisition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::landing-acquisition.landing-acquisition',
+      'oneToMany',
+      'api::landing-acquisition.landing-acquisition'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -994,6 +1056,7 @@ declare module '@strapi/types' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::landing-acquisition.landing-acquisition': ApiLandingAcquisitionLandingAcquisition;
     }
   }
 }
