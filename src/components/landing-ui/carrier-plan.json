@@ -14,7 +14,7 @@
     },
     "logo": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "allowedTypes": [
         "images"
@@ -27,6 +27,10 @@
     "new_price": {
       "type": "integer",
       "required": true
+    },
+    "currency": {
+      "type": "string",
+      "default": "$"
     }
   }
 }
