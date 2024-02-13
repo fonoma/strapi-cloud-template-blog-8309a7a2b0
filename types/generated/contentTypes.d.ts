@@ -419,6 +419,10 @@ export interface ApiLandingAcquisitionLandingAcquisition
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        minLength: 10;
+        maxLength: 150;
       }>;
     carrier_plan: Attribute.Component<'landing-ui.carrier-plan', true> &
       Attribute.SetPluginOptions<{
@@ -430,9 +434,32 @@ export interface ApiLandingAcquisitionLandingAcquisition
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
+    type: Attribute.Enumeration<['acquisition', 'retention', 'resurrection']> &
+      Attribute.Required &
+      Attribute.Private &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    design: Attribute.Integer &
+      Attribute.Private &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 5;
+        },
+        number
+      > &
+      Attribute.DefaultTo<1>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

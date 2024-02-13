@@ -23,7 +23,9 @@
         }
       },
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 150,
+      "minLength": 10
     },
     "carrier_plan": {
       "type": "component",
@@ -40,11 +42,39 @@
       "repeatable": false,
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "component": "landing-ui.carrier-data",
       "required": true
+    },
+    "type": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "acquisition",
+        "retention",
+        "resurrection"
+      ],
+      "required": true,
+      "private": true
+    },
+    "design": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer",
+      "default": 1,
+      "max": 5,
+      "min": 1,
+      "private": true,
+      "unique": false
     }
   }
 }

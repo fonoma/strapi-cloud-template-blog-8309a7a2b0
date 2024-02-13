@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-02-08T22:51:33.555Z"
+    "x-generation-date": "2024-02-13T19:14:37.087Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1030,6 +1030,7 @@
         "required": [
           "title",
           "carrier",
+          "type",
           "locale"
         ],
         "type": "object",
@@ -1046,6 +1047,17 @@
           "carrier": {
             "$ref": "#/components/schemas/LandingUiCarrierDataComponent"
           },
+          "type": {
+            "type": "string",
+            "enum": [
+              "acquisition",
+              "retention",
+              "resurrection"
+            ]
+          },
+          "design": {
+            "type": "integer"
+          },
           "locale": {
             "type": "string"
           }
@@ -1060,7 +1072,8 @@
           "data": {
             "required": [
               "title",
-              "carrier"
+              "carrier",
+              "type"
             ],
             "type": "object",
             "properties": {
@@ -1075,6 +1088,17 @@
               },
               "carrier": {
                 "$ref": "#/components/schemas/LandingUiCarrierDataComponent"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "acquisition",
+                  "retention",
+                  "resurrection"
+                ]
+              },
+              "design": {
+                "type": "integer"
               },
               "locale": {
                 "type": "string"
@@ -1201,7 +1225,8 @@
         "type": "object",
         "required": [
           "title",
-          "carrier"
+          "carrier",
+          "type"
         ],
         "properties": {
           "title": {
@@ -1215,6 +1240,17 @@
           },
           "carrier": {
             "$ref": "#/components/schemas/LandingUiCarrierDataComponent"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "acquisition",
+              "retention",
+              "resurrection"
+            ]
+          },
+          "design": {
+            "type": "integer"
           },
           "createdAt": {
             "type": "string",
