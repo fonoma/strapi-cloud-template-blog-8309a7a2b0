@@ -73,6 +73,14 @@
       "max": 5,
       "min": 1,
       "unique": false
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
     }
   }
 }

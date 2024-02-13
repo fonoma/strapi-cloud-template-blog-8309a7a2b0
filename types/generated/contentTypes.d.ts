@@ -458,6 +458,12 @@ export interface ApiLandingAcquisitionLandingAcquisition
         number
       > &
       Attribute.DefaultTo<1>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
