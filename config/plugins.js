@@ -3,7 +3,7 @@ module.exports = ({ env }) => ({
     config: {
       contentTypes: [
         {
-          uid: 'api::landing.acquisition',
+          uid: 'api::landing-acquisition',
           draft: {
             url: `${env('WEBSITE_BASE_URL')}api/draft`,
             query: {
