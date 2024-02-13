@@ -439,14 +439,12 @@ export interface ApiLandingAcquisitionLandingAcquisition
       }>;
     type: Attribute.Enumeration<['acquisition', 'retention', 'resurrection']> &
       Attribute.Required &
-      Attribute.Private &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
     design: Attribute.Integer &
-      Attribute.Private &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
