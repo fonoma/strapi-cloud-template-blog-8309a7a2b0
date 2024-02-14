@@ -362,6 +362,36 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiDisableDraftModeDisableDraftMode extends Schema.SingleType {
+  collectionName: 'disable_draft_modes';
+  info: {
+    singularName: 'disable-draft-mode';
+    pluralName: 'disable-draft-modes';
+    displayName: 'Disable_Draft_Mode';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    slug: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::disable-draft-mode.disable-draft-mode',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::disable-draft-mode.disable-draft-mode',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Schema.SingleType {
   collectionName: 'globals';
   info: {
@@ -913,6 +943,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::disable-draft-mode.disable-draft-mode': ApiDisableDraftModeDisableDraftMode;
       'api::global.global': ApiGlobalGlobal;
       'api::landing-acquisition.landing-acquisition': ApiLandingAcquisitionLandingAcquisition;
       'plugin::upload.file': PluginUploadFile;

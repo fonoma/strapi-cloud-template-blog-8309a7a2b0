@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "disable_draft_modes",
+  "info": {
+    "singularName": "disable-draft-mode",
+    "pluralName": "disable-draft-modes",
+    "displayName": "Disable_Draft_Mode"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

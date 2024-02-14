@@ -21,6 +21,17 @@ module.exports = ({ env }) => ({
             openTarget: '_blank',
           },
         },
+        {
+          uid: 'api::disable-draft-mode.disable-draft-mode',
+          draft: {
+            url: `${env('WEBSITE_BASE_URL')}api/{slug}`,
+            openTarget: '_blank',
+          },
+          published: {
+            url: `${env('WEBSITE_BASE_URL')}api/{slug}`,
+            openTarget: '_blank',
+          },
+        },
       ],
     },
   },
