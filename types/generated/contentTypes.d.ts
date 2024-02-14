@@ -430,20 +430,6 @@ export interface ApiLandingAcquisitionLandingAcquisition
           localized: true;
         };
       }>;
-    carrier: Attribute.Component<'landing-ui.carrier-data'> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    type: Attribute.Enumeration<['acquisition', 'retention', 'resurrection']> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     design: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -458,7 +444,17 @@ export interface ApiLandingAcquisitionLandingAcquisition
         number
       > &
       Attribute.DefaultTo<1>;
-    slug: Attribute.String &
+    carrier: Attribute.Enumeration<
+      ['net10-wireless', 'lyca-mobile', 't-mobile']
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    logo: Attribute.Media &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;

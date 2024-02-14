@@ -1,15 +1,13 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface LandingUiCarrierData extends Schema.Component {
-  collectionName: 'components_landing_ui_carrier_data';
+export interface LandingUiCarrierName extends Schema.Component {
+  collectionName: 'components_landing_ui_carrier_names';
   info: {
-    displayName: 'carrier_data';
-    icon: 'phone';
+    displayName: 'Carrier_name';
+    icon: 'server';
   };
   attributes: {
-    name: Attribute.Enumeration<['net10-wireless', 'lyca-mobile', 't-mobile']> &
-      Attribute.Required;
-    logo: Attribute.Media & Attribute.Required;
+    name: Attribute.Enumeration<['net10-wireless', 'lyca-mobile', 't-mobile']>;
   };
 }
 
@@ -51,7 +49,7 @@ export interface SharedSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'landing-ui.carrier-data': LandingUiCarrierData;
+      'landing-ui.carrier-name': LandingUiCarrierName;
       'landing-ui.carrier-plan': LandingUiCarrierPlan;
       'shared.seo': SharedSeo;
     }

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_landing_ui_carrier_names",
+  "info": {
+    "displayName": "Carrier_name",
+    "icon": "server"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "net10-wireless",
+        "lyca-mobile",
+        "t-mobile"
+      ]
+    }
+  }
+}

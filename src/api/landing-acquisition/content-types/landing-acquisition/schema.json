@@ -37,31 +37,6 @@
       },
       "component": "landing-ui.carrier-plan"
     },
-    "carrier": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "landing-ui.carrier-data",
-      "required": true
-    },
-    "type": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "acquisition",
-        "retention",
-        "resurrection"
-      ],
-      "required": true
-    },
     "design": {
       "pluginOptions": {
         "i18n": {
@@ -74,13 +49,32 @@
       "min": 1,
       "unique": false
     },
-    "slug": {
+    "carrier": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "net10-wireless",
+        "lyca-mobile",
+        "t-mobile"
+      ],
+      "required": true
+    },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true
     }
   }
 }
