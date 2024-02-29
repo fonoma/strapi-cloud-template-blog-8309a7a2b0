@@ -1,11 +1,10 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "acquisition_multi_carriers",
   "info": {
     "singularName": "acquisition-multi-carrier",
     "pluralName": "acquisition-multi-carriers",
-    "displayName": "acquisition-multi-carrier",
-    "description": ""
+    "displayName": "acquisition-multi-carrier"
   },
   "options": {
     "draftAndPublish": true
@@ -25,15 +24,14 @@
       "type": "string"
     },
     "logos": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
       "allowedTypes": [
         "images"
       ],
+      "type": "media",
+      "multiple": true,
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       }
     }

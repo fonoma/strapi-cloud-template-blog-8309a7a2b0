@@ -430,13 +430,12 @@ export interface ApiAcquisitionAcquisition extends Schema.CollectionType {
 }
 
 export interface ApiAcquisitionMultiCarrierAcquisitionMultiCarrier
-  extends Schema.SingleType {
+  extends Schema.CollectionType {
   collectionName: 'acquisition_multi_carriers';
   info: {
     singularName: 'acquisition-multi-carrier';
     pluralName: 'acquisition-multi-carriers';
     displayName: 'acquisition-multi-carrier';
-    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -456,7 +455,7 @@ export interface ApiAcquisitionMultiCarrierAcquisitionMultiCarrier
     logos: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;

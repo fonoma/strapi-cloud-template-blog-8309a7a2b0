@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-02-29T16:05:16.557Z"
+    "x-generation-date": "2024-02-29T20:56:31.511Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -4199,7 +4199,7 @@
         }
       }
     },
-    "/acquisition-multi-carrier": {
+    "/acquisition-multi-carriers": {
       "get": {
         "responses": {
           "200": {
@@ -4207,7 +4207,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AcquisitionMultiCarrierResponse"
+                  "$ref": "#/components/schemas/AcquisitionMultiCarrierListResponse"
                 }
               }
             }
@@ -4369,7 +4369,168 @@
             }
           }
         ],
-        "operationId": "get/acquisition-multi-carrier"
+        "operationId": "get/acquisition-multi-carriers"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquisitionMultiCarrierResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Acquisition-multi-carrier"
+        ],
+        "parameters": [],
+        "operationId": "post/acquisition-multi-carriers",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcquisitionMultiCarrierRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/acquisition-multi-carriers/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquisitionMultiCarrierResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Acquisition-multi-carrier"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "get/acquisition-multi-carriers/{id}"
       },
       "put": {
         "responses": {
@@ -4437,8 +4598,19 @@
         "tags": [
           "Acquisition-multi-carrier"
         ],
-        "parameters": [],
-        "operationId": "put/acquisition-multi-carrier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "put/acquisition-multi-carriers/{id}",
         "requestBody": {
           "required": true,
           "content": {
@@ -4517,11 +4689,22 @@
         "tags": [
           "Acquisition-multi-carrier"
         ],
-        "parameters": [],
-        "operationId": "delete/acquisition-multi-carrier"
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "delete/acquisition-multi-carriers/{id}"
       }
     },
-    "/acquisition-multi-carrier/localizations": {
+    "/acquisition-multi-carriers/{id}/localizations": {
       "post": {
         "responses": {
           "200": {
@@ -4588,8 +4771,19 @@
         "tags": [
           "Acquisition-multi-carrier"
         ],
-        "parameters": [],
-        "operationId": "post/acquisition-multi-carrier/localizations",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "post/acquisition-multi-carriers/{id}/localizations",
         "requestBody": {
           "required": true,
           "content": {
