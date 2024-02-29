@@ -362,6 +362,73 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiAcquisitionAcquisition extends Schema.CollectionType {
+  collectionName: 'acquisitions';
+  info: {
+    singularName: 'acquisition';
+    pluralName: 'acquisitions';
+    displayName: 'acquisition';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    carrier_plan: Attribute.Component<'landing-ui.carrier-plan', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    carrier: Attribute.Enumeration<
+      ['net10-wireless', 'lyca-mobile', 't-mobile']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logo: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::acquisition.acquisition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::acquisition.acquisition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::acquisition.acquisition',
+      'oneToMany',
+      'api::acquisition.acquisition'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiDisableDraftModeDisableDraftMode extends Schema.SingleType {
   collectionName: 'disable_draft_modes';
   info: {
@@ -943,6 +1010,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::acquisition.acquisition': ApiAcquisitionAcquisition;
       'api::disable-draft-mode.disable-draft-mode': ApiDisableDraftModeDisableDraftMode;
       'api::global.global': ApiGlobalGlobal;
       'api::landing-acquisition.landing-acquisition': ApiLandingAcquisitionLandingAcquisition;

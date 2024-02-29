@@ -22,6 +22,23 @@ module.exports = ({ env }) => ({
           },
         },
         {
+          uid: 'api::acquisition.acquisition',
+          draft: {
+            url: `${env('WEBSITE_BASE_URL')}api/draft`,
+            query: {
+              slug: '{locale},acquisition,{carrier}',
+              secret: env('DRAFT_SECRET'),
+            },
+            openTarget: '_blank',
+          },
+          published: {
+            url: `${env('WEBSITE_BASE_URL')}{locale}/landing/acquisition/{carrier}`,
+            query: {
+            },
+            openTarget: '_blank',
+          },
+        },
+        {
           uid: 'api::disable-draft-mode.disable-draft-mode',
           draft: {
             url: `${env('WEBSITE_BASE_URL')}api/{slug}`,
