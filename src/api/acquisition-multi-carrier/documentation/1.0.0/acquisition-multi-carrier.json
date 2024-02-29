@@ -1,5 +1,5 @@
 {
-  "/landing-acquisitions": {
+  "/acquisition-multi-carrier": {
     "get": {
       "responses": {
         "200": {
@@ -7,7 +7,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LandingAcquisitionListResponse"
+                "$ref": "#/components/schemas/AcquisitionMultiCarrierResponse"
               }
             }
           }
@@ -64,7 +64,7 @@
         }
       },
       "tags": [
-        "Landing-acquisition"
+        "Acquisition-multi-carrier"
       ],
       "parameters": [
         {
@@ -169,168 +169,7 @@
           }
         }
       ],
-      "operationId": "get/landing-acquisitions"
-    },
-    "post": {
-      "responses": {
-        "200": {
-          "description": "OK",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LandingAcquisitionResponse"
-              }
-            }
-          }
-        },
-        "400": {
-          "description": "Bad Request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "Unauthorized",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "Forbidden",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "Not Found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "500": {
-          "description": "Internal Server Error",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        }
-      },
-      "tags": [
-        "Landing-acquisition"
-      ],
-      "parameters": [],
-      "operationId": "post/landing-acquisitions",
-      "requestBody": {
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/LandingAcquisitionRequest"
-            }
-          }
-        }
-      }
-    }
-  },
-  "/landing-acquisitions/{id}": {
-    "get": {
-      "responses": {
-        "200": {
-          "description": "OK",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LandingAcquisitionResponse"
-              }
-            }
-          }
-        },
-        "400": {
-          "description": "Bad Request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "Unauthorized",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "Forbidden",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "Not Found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "500": {
-          "description": "Internal Server Error",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        }
-      },
-      "tags": [
-        "Landing-acquisition"
-      ],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "description": "",
-          "deprecated": false,
-          "required": true,
-          "schema": {
-            "type": "number"
-          }
-        }
-      ],
-      "operationId": "get/landing-acquisitions/{id}"
+      "operationId": "get/acquisition-multi-carrier"
     },
     "put": {
       "responses": {
@@ -339,7 +178,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LandingAcquisitionResponse"
+                "$ref": "#/components/schemas/AcquisitionMultiCarrierResponse"
               }
             }
           }
@@ -396,27 +235,16 @@
         }
       },
       "tags": [
-        "Landing-acquisition"
+        "Acquisition-multi-carrier"
       ],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "description": "",
-          "deprecated": false,
-          "required": true,
-          "schema": {
-            "type": "number"
-          }
-        }
-      ],
-      "operationId": "put/landing-acquisitions/{id}",
+      "parameters": [],
+      "operationId": "put/acquisition-multi-carrier",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/LandingAcquisitionRequest"
+              "$ref": "#/components/schemas/AcquisitionMultiCarrierRequest"
             }
           }
         }
@@ -487,24 +315,13 @@
         }
       },
       "tags": [
-        "Landing-acquisition"
+        "Acquisition-multi-carrier"
       ],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "description": "",
-          "deprecated": false,
-          "required": true,
-          "schema": {
-            "type": "number"
-          }
-        }
-      ],
-      "operationId": "delete/landing-acquisitions/{id}"
+      "parameters": [],
+      "operationId": "delete/acquisition-multi-carrier"
     }
   },
-  "/landing-acquisitions/{id}/localizations": {
+  "/acquisition-multi-carrier/localizations": {
     "post": {
       "responses": {
         "200": {
@@ -512,7 +329,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LandingAcquisitionLocalizationResponse"
+                "$ref": "#/components/schemas/AcquisitionMultiCarrierLocalizationResponse"
               }
             }
           }
@@ -569,27 +386,16 @@
         }
       },
       "tags": [
-        "Landing-acquisition"
+        "Acquisition-multi-carrier"
       ],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "description": "",
-          "deprecated": false,
-          "required": true,
-          "schema": {
-            "type": "number"
-          }
-        }
-      ],
-      "operationId": "post/landing-acquisitions/{id}/localizations",
+      "parameters": [],
+      "operationId": "post/acquisition-multi-carrier/localizations",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/LandingAcquisitionLocalizationRequest"
+              "$ref": "#/components/schemas/AcquisitionMultiCarrierLocalizationRequest"
             }
           }
         }

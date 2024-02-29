@@ -429,6 +429,60 @@ export interface ApiAcquisitionAcquisition extends Schema.CollectionType {
   };
 }
 
+export interface ApiAcquisitionMultiCarrierAcquisitionMultiCarrier
+  extends Schema.SingleType {
+  collectionName: 'acquisition_multi_carriers';
+  info: {
+    singularName: 'acquisition-multi-carrier';
+    pluralName: 'acquisition-multi-carriers';
+    displayName: 'acquisition-multi-carrier';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logos: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::acquisition-multi-carrier.acquisition-multi-carrier',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::acquisition-multi-carrier.acquisition-multi-carrier',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::acquisition-multi-carrier.acquisition-multi-carrier',
+      'oneToMany',
+      'api::acquisition-multi-carrier.acquisition-multi-carrier'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiDisableDraftModeDisableDraftMode extends Schema.SingleType {
   collectionName: 'disable_draft_modes';
   info: {
@@ -489,95 +543,6 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
-  };
-}
-
-export interface ApiLandingAcquisitionLandingAcquisition
-  extends Schema.CollectionType {
-  collectionName: 'landing_acquisitions';
-  info: {
-    singularName: 'landing-acquisition';
-    pluralName: 'landing-acquisitions';
-    displayName: 'Landing_Acquisition';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        minLength: 10;
-        maxLength: 150;
-      }>;
-    carrier_plan: Attribute.Component<'landing-ui.carrier-plan', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    design: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 5;
-        },
-        number
-      > &
-      Attribute.DefaultTo<1>;
-    carrier: Attribute.Enumeration<
-      ['net10-wireless', 'lyca-mobile', 't-mobile']
-    > &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    logo: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::landing-acquisition.landing-acquisition',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::landing-acquisition.landing-acquisition',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::landing-acquisition.landing-acquisition',
-      'oneToMany',
-      'api::landing-acquisition.landing-acquisition'
-    >;
-    locale: Attribute.String;
   };
 }
 
@@ -1011,9 +976,9 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::acquisition.acquisition': ApiAcquisitionAcquisition;
+      'api::acquisition-multi-carrier.acquisition-multi-carrier': ApiAcquisitionMultiCarrierAcquisitionMultiCarrier;
       'api::disable-draft-mode.disable-draft-mode': ApiDisableDraftModeDisableDraftMode;
       'api::global.global': ApiGlobalGlobal;
-      'api::landing-acquisition.landing-acquisition': ApiLandingAcquisitionLandingAcquisition;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
