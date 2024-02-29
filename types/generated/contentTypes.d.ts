@@ -456,7 +456,7 @@ export interface ApiAcquisitionMultiCarrierAcquisitionMultiCarrier
     logos: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
