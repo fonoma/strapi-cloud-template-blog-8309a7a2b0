@@ -7,8 +7,9 @@ module.exports = ({ env }) => ({
           draft: {
             url: `${env('WEBSITE_BASE_URL')}api/draft`,
             query: {
-              slug: '{locale},acquisition,{carrier}',
-              secret: env('DRAFT_SECRET'),
+              path: '{locale}/landing/acquisition/{carrier}',
+              filters: 'carrier={carrier}',
+              secret: env('DRAFT_SECRET')
             },
             openTarget: '_blank',
           },
@@ -24,8 +25,9 @@ module.exports = ({ env }) => ({
           draft: {
             url: `${env('WEBSITE_BASE_URL')}api/draft`,
             query: {
-              slug: '{locale},acquisition-multi-carrier',
-              secret: env('DRAFT_SECRET'),
+              path: '{locale}/landing/acquisition-multi-carrier',
+              filters: '',
+              secret: env('DRAFT_SECRET')
             },
             openTarget: '_blank',
           },
