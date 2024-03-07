@@ -8,13 +8,12 @@ module.exports = ({ env }) => ({
             url: `${env('WEBSITE_BASE_URL')}api/draft`,
             query: {
               path: '{path}',
-              filters: 'carrier={carrier}',
               secret: env('DRAFT_SECRET')
             },
             openTarget: '_blank',
           },
           published: {
-            url: `${env('WEBSITE_BASE_URL')}{locale}/landing/acquisition/{carrier}`,
+            url: `${env('WEBSITE_BASE_URL')}{path}`,
             query: {
             },
             openTarget: '_blank',
@@ -26,13 +25,12 @@ module.exports = ({ env }) => ({
             url: `${env('WEBSITE_BASE_URL')}api/draft`,
             query: {
               path: '{path}',
-              filters: '',
               secret: env('DRAFT_SECRET')
             },
             openTarget: '_blank',
           },
           published: {
-            url: `${env('WEBSITE_BASE_URL')}{locale}/landing/acquisition-multi-carrier`,
+            url: `${env('WEBSITE_BASE_URL')}{path}`,
             query: {
             },
             openTarget: '_blank',
