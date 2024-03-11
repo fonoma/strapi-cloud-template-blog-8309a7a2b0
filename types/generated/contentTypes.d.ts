@@ -362,6 +362,202 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiAcquisitionAcquisition extends Schema.CollectionType {
+  collectionName: 'acquisitions';
+  info: {
+    singularName: 'acquisition';
+    pluralName: 'acquisitions';
+    displayName: 'acquisition';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    carrier_plan: Attribute.Component<'landing-ui.carrier-plan', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    carrier: Attribute.Enumeration<
+      ['net10-wireless', 'lyca-mobile', 't-mobile']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logo: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    path: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::acquisition.acquisition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::acquisition.acquisition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::acquisition.acquisition',
+      'oneToMany',
+      'api::acquisition.acquisition'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiAcquisitionMultiCarrierAcquisitionMultiCarrier
+  extends Schema.CollectionType {
+  collectionName: 'acquisition_multi_carriers';
+  info: {
+    singularName: 'acquisition-multi-carrier';
+    pluralName: 'acquisition-multi-carriers';
+    displayName: 'acquisition-multi-carrier';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logos: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    path: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::acquisition-multi-carrier.acquisition-multi-carrier',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::acquisition-multi-carrier.acquisition-multi-carrier',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::acquisition-multi-carrier.acquisition-multi-carrier',
+      'oneToMany',
+      'api::acquisition-multi-carrier.acquisition-multi-carrier'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiDisableDraftModeDisableDraftMode extends Schema.SingleType {
+  collectionName: 'disable_draft_modes';
+  info: {
+    singularName: 'disable-draft-mode';
+    pluralName: 'disable-draft-modes';
+    displayName: 'Disable_Draft_Mode';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    slug: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::disable-draft-mode.disable-draft-mode',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::disable-draft-mode.disable-draft-mode',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGlobalGlobal extends Schema.SingleType {
+  collectionName: 'globals';
+  info: {
+    singularName: 'global';
+    pluralName: 'globals';
+    displayName: 'Global';
+    description: 'Define global settings';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    siteName: Attribute.String & Attribute.Required;
+    favicon: Attribute.Media;
+    siteDescription: Attribute.Text & Attribute.Required;
+    defaultSeo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::global.global',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::global.global',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -781,195 +977,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiAcquisitionAcquisition extends Schema.CollectionType {
-  collectionName: 'acquisitions';
-  info: {
-    singularName: 'acquisition';
-    pluralName: 'acquisitions';
-    displayName: 'acquisition';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    carrier_plan: Attribute.Component<'landing-ui.carrier-plan', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    carrier: Attribute.Enumeration<
-      ['net10-wireless', 'lyca-mobile', 't-mobile']
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    logo: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    path: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::acquisition.acquisition',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::acquisition.acquisition',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::acquisition.acquisition',
-      'oneToMany',
-      'api::acquisition.acquisition'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiAcquisitionMultiCarrierAcquisitionMultiCarrier
-  extends Schema.CollectionType {
-  collectionName: 'acquisition_multi_carriers';
-  info: {
-    singularName: 'acquisition-multi-carrier';
-    pluralName: 'acquisition-multi-carriers';
-    displayName: 'acquisition-multi-carrier';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    logos: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::acquisition-multi-carrier.acquisition-multi-carrier',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::acquisition-multi-carrier.acquisition-multi-carrier',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::acquisition-multi-carrier.acquisition-multi-carrier',
-      'oneToMany',
-      'api::acquisition-multi-carrier.acquisition-multi-carrier'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiDisableDraftModeDisableDraftMode extends Schema.SingleType {
-  collectionName: 'disable_draft_modes';
-  info: {
-    singularName: 'disable-draft-mode';
-    pluralName: 'disable-draft-modes';
-    displayName: 'Disable_Draft_Mode';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    slug: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::disable-draft-mode.disable-draft-mode',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::disable-draft-mode.disable-draft-mode',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiGlobalGlobal extends Schema.SingleType {
-  collectionName: 'globals';
-  info: {
-    singularName: 'global';
-    pluralName: 'globals';
-    displayName: 'Global';
-    description: 'Define global settings';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    siteName: Attribute.String & Attribute.Required;
-    favicon: Attribute.Media;
-    siteDescription: Attribute.Text & Attribute.Required;
-    defaultSeo: Attribute.Component<'shared.seo'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::global.global',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::global.global',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -980,6 +987,10 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::acquisition.acquisition': ApiAcquisitionAcquisition;
+      'api::acquisition-multi-carrier.acquisition-multi-carrier': ApiAcquisitionMultiCarrierAcquisitionMultiCarrier;
+      'api::disable-draft-mode.disable-draft-mode': ApiDisableDraftModeDisableDraftMode;
+      'api::global.global': ApiGlobalGlobal;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -988,10 +999,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::acquisition.acquisition': ApiAcquisitionAcquisition;
-      'api::acquisition-multi-carrier.acquisition-multi-carrier': ApiAcquisitionMultiCarrierAcquisitionMultiCarrier;
-      'api::disable-draft-mode.disable-draft-mode': ApiDisableDraftModeDisableDraftMode;
-      'api::global.global': ApiGlobalGlobal;
     }
   }
 }
