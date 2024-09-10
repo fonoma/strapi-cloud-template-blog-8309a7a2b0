@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_landigs_ui_carrier_plans",
+  "info": {
+    "displayName": "carrier_plan",
+    "icon": "handHeart",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "old_price": {
+      "type": "integer",
+      "required": false
+    },
+    "new_price": {
+      "type": "integer",
+      "required": true
+    },
+    "currency": {
+      "type": "string",
+      "default": "$"
+    }
+  }
+}
